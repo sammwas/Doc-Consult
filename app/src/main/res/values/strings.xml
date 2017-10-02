@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Dial-A-Doctor</string>
+    <string name="title_activity_doctors">DoctorsActivity</string>
+</resources>
