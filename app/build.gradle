@@ -13,7 +13,7 @@ android {
     }
 
     buildTypes.each {
-        it.buildConfigField 'String', 'API_KEY', apiKey
+        it.buildConfigField 'String', 'USER_KEY', user_key
     }
 
     buildTypes {
