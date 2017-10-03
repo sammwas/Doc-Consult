@@ -9,7 +9,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Here is a List of your doctors"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textViewDoctor" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listViewDoctor"
+        android:layout_below="@+id/textViewDoctor" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView"/>
 
 
 </RelativeLayout>

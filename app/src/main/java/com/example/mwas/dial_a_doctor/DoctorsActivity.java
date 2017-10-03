@@ -4,19 +4,30 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.example.mwas.dial_a_doctor.models.Doctor;
+import com.example.mwas.dial_a_doctor.services.BetterDocService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
 public class DoctorsActivity extends AppCompatActivity {
+    public ArrayList<Doctor> mDoctors = new ArrayList<>();
+    @Bind(R.id.listViewDoctor) ListView mListViewDoctor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors);
+        ButterKnife.bind(this);
         Intent intent = getIntent();
         String searchParam = intent.getStringExtra("searchParam");
         getDoctors(searchParam);
@@ -34,12 +45,25 @@ public class DoctorsActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                try{
-                    String jsonData = response.body().string();
-                    Log.v("URL", jsonData);
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
+                mDoctors = betterDocService.processResults(response);
+                DoctorsActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                       String[] doctorsNames = new String[mDoctors.size()];
+                        for(int i = 0; i < doctorsNames.length; i++) {
+                            doctorsNames[i] = mDoctors.get(i).getFirstName();
+                        }
+                        ArrayAdapter adapter = new ArrayAdapter(DoctorsActivity.this, android.R.layout.simple_list_item_1, doctorsNames);
+                        mListViewDoctor.setAdapter(adapter);
+                        for(Doctor doctor:mDoctors){
+                            Log.v("FirstName",doctor.getFirstName());
+                            Log.v("LastName",doctor.getLastName());
+                            Log.v("ImageUrl",doctor.getImageUrl());
+                            Log.v("Bio",doctor.getBio());
+                        }
+
+                    }
+                });
             }
         });
     }

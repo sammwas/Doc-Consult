@@ -1,4 +1,4 @@
-package com.example.mwas.dial_a_doctor;
+package com.example.mwas.dial_a_doctor.models;
 
 import java.util.ArrayList;
 
@@ -14,13 +14,13 @@ public class Doctor {
     private ArrayList<String> mPhones = new ArrayList<>();
     private String mSpeciality;
 
-    public Doctor(String firstName, String lastName, String imageUrl, String bio, ArrayList<String> phones, String speciality) {
+    public Doctor(String firstName, String lastName, String imageUrl, String bio) {
         this.mFirstName = firstName;
         this.mLastName = lastName;
         this.mImageUrl = imageUrl;
         this.mBio = bio;
-        this.mPhones = phones;
-        this.mSpeciality = speciality;
+//        this.mPhones = phones;
+//        this.mSpeciality = speciality;
     }
 
     public String getFirstName() {
@@ -39,11 +39,11 @@ public class Doctor {
         return mBio;
     }
 
-    public ArrayList<String > getPhones() {
-        return mPhones;
-    }
+//    public ArrayList<String > getPhones() {
+//        return mPhones;
+//    }
 
-    public String getSpeciality() {
-        return mSpeciality;
-    }
+//    public String getSpeciality() {
+//        return mSpeciality;
+//    }
 }
