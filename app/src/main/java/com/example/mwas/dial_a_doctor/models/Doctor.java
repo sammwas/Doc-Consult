@@ -10,35 +10,34 @@ import java.util.ArrayList;
 
 @Parcel
 public class Doctor {
-    String mFirstName;
-    String mLastName;
-    String mImageUrl;
-    String mBio;
+    String firstName;
+    String lastName;
+    String imageUrl;
+    String bio;
     ArrayList<String> mPhones = new ArrayList<>();
     String mSpeciality;
 
     public Doctor(String firstName, String lastName, String imageUrl, String bio) {
-        this.mFirstName = firstName;
-        this.mLastName = lastName;
-        this.mImageUrl = imageUrl;
-        this.mBio = bio;
-//        this.mPhones = phones;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.imageUrl = imageUrl;
+        this.bio = bio;
+//        thimPhones = phones;
 //        this.mSpeciality = speciality;
     }
     public Doctor() {}
 
     public String getFirstName() {
-        return mFirstName;
+        return firstName;
     }
 
     public String getLastName() {
-        return mLastName;
+        return lastName;
     }
-
-    public String getImageUrl() { return mImageUrl; }
+    public String getImageUrl() { return imageUrl; }
 
     public String getBio() {
-        return mBio;
+        return bio;
     }
 
 //    public ArrayList<String > getPhones() {
