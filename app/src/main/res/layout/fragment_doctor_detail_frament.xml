@@ -1,0 +1,54 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mwas.dial_a_doctor.ui.DoctorDetailFrament">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/doctorImageView"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="110dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dak" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstNameTextView"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="First Name:"
+            android:layout_below="@id/doctorImageView"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name:"
+            android:id="@+id/lastNameTextView"
+            android:layout_below="@+id/firstNameTextView"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bio"
+            android:id="@+id/bioTextView"
+            android:layout_below="@+id/lastNameTextView"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+
+
+    </RelativeLayout>
+</FrameLayout>
