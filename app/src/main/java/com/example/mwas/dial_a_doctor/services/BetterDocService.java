@@ -58,11 +58,10 @@ public class BetterDocService {
                     String bio = doctorJSON.getJSONObject("profile").getString("bio");
 
 //                    ArrayList<String> phones = new ArrayList<>();
-//                    JSONArray phonesJSON = doctorJSON.getJSONArray("practices");
+//                    JSONArray phonesJSON = doctorJSON.getJSONArray("phones");
 //
 //                    for (int y = 0; y < phonesJSON.length(); y++) {
-//                        for(int i =0; i< phonesJSON[y].length(); i++)
-//
+//                        phones.add(phonesJSON.get(y).toString());
 //                    }
 //                    String specialty = doctorJSON.getJSONArray("specialties").
 

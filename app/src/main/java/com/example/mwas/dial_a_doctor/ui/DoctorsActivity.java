@@ -1,12 +1,15 @@
-package com.example.mwas.dial_a_doctor;
+package com.example.mwas.dial_a_doctor.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
+import com.example.mwas.dial_a_doctor.R;
+import com.example.mwas.dial_a_doctor.adapters.DoctorListAdapter;
 import com.example.mwas.dial_a_doctor.models.Doctor;
 import com.example.mwas.dial_a_doctor.services.BetterDocService;
 
@@ -21,7 +24,11 @@ import okhttp3.Response;
 
 public class DoctorsActivity extends AppCompatActivity {
     public ArrayList<Doctor> mDoctors = new ArrayList<>();
-    @Bind(R.id.listViewDoctor) ListView mListViewDoctor;
+
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private DoctorListAdapter mAdapter;
+
+    public ArrayList<Doctor> mRestaurants = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +56,12 @@ public class DoctorsActivity extends AppCompatActivity {
                 DoctorsActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                       String[] doctorsNames = new String[mDoctors.size()];
-                        for(int i = 0; i < doctorsNames.length; i++) {
-                            doctorsNames[i] = mDoctors.get(i).getFirstName();
-                        }
-                        ArrayAdapter adapter = new ArrayAdapter(DoctorsActivity.this, android.R.layout.simple_list_item_1, doctorsNames);
-                        mListViewDoctor.setAdapter(adapter);
-                        for(Doctor doctor:mDoctors){
-                            Log.v("FirstName",doctor.getFirstName());
-                            Log.v("LastName",doctor.getLastName());
-                            Log.v("ImageUrl",doctor.getImageUrl());
-                            Log.v("Bio",doctor.getBio());
-                        }
+                        mAdapter = new DoctorListAdapter(getApplicationContext(), mRestaurants);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(DoctorsActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
 
                     }
                 });

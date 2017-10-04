@@ -39,9 +39,9 @@ public class Doctor {
         return mBio;
     }
 
-//    public ArrayList<String > getPhones() {
-//        return mPhones;
-//    }
+    public ArrayList<String > getPhones() {
+        return mPhones;
+    }
 
 //    public String getSpeciality() {
 //        return mSpeciality;

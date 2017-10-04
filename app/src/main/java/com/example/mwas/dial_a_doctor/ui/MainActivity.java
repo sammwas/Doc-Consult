@@ -1,4 +1,4 @@
-package com.example.mwas.dial_a_doctor;
+package com.example.mwas.dial_a_doctor.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.mwas.dial_a_doctor.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

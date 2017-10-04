@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mwas.dial_a_doctor.DoctorsActivity">
+    tools:context="com.example.mwas.dial_a_doctor.ui.DoctorsActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,15 +12,11 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/textViewDoctor" />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listViewDoctor"
-        android:layout_below="@+id/textViewDoctor" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/textViewDoctor"
         android:id="@+id/recyclerView"/>
 
 
