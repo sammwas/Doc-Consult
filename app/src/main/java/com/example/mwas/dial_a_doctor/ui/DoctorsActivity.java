@@ -28,8 +28,6 @@ public class DoctorsActivity extends AppCompatActivity {
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private DoctorListAdapter mAdapter;
 
-    public ArrayList<Doctor> mRestaurants = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,12 +54,19 @@ public class DoctorsActivity extends AppCompatActivity {
                 DoctorsActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mAdapter = new DoctorListAdapter(getApplicationContext(), mRestaurants);
+                        mAdapter = new DoctorListAdapter(getApplicationContext(), mDoctors);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager =
                                 new LinearLayoutManager(DoctorsActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
+
+                        for(Doctor doctor:mDoctors){
+                            Log.v("FirstName",doctor.getFirstName());
+                            Log.v("LastName",doctor.getLastName());
+                            Log.v("ImageUrl",doctor.getImageUrl());
+                            Log.v("Bio",doctor.getBio());
+                        }
 
                     }
                 });

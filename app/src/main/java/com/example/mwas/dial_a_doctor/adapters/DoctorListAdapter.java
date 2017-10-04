@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.mwas.dial_a_doctor.R;
 import com.example.mwas.dial_a_doctor.models.Doctor;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -63,6 +64,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Vi
         }
 
         public void bindDoctor(Doctor doctor) {
+            Picasso.with(mContext).load(doctor.getImageUrl()).into(mDoctorImageView);
             mFirstNameTextView.setText(doctor.getFirstName());
             mLastNameTextView.setText(doctor.getLastName());
             mBioTextView.setText(doctor.getBio());
