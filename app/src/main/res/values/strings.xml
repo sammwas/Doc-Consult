@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Dial-A-Doctor</string>
+    <string name="app_name">Doctor-Consult</string>
     <string name="title_activity_doctors">DoctorsActivity</string>
-
+    <string name="default_media_location_folder">Dial-A-Doctor</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

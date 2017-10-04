@@ -49,6 +49,17 @@
             android:textColor="#000000"
             android:textStyle="bold"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Doctor"
+            android:id="@+id/saveRestaurantButton"
+            android:layout_alignParentBottom="true"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
 
     </RelativeLayout>
+
+
 </FrameLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "388792642832",
+    "firebase_url": "https://doctor-consult-27f9f.firebaseio.com",
+    "project_id": "doctor-consult-27f9f",
+    "storage_bucket": "doctor-consult-27f9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388792642832:android:a6bab68485aafe70",
+        "android_client_info": {
+          "package_name": "com.example.mwas.dial_a_doctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388792642832-cmpti92l2l438bod6ee9gpr73dilj120.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mwas.dial_a_doctor",
+            "certificate_hash": "a09b21f7ced07f083dd3d76e30949f8de0c1276c"
+          }
+        },
+        {
+          "client_id": "388792642832-020tb33ers8vhec6jcq8jdqt6qrd200b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg4pLClIbfaAqYhjd4HbfcnzJVS22gPNk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388792642832-020tb33ers8vhec6jcq8jdqt6qrd200b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

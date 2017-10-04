@@ -1,6 +1,7 @@
 package com.example.mwas.dial_a_doctor.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.widget.TextView;
 
 import com.example.mwas.dial_a_doctor.R;
 import com.example.mwas.dial_a_doctor.models.Doctor;
+import com.example.mwas.dial_a_doctor.ui.DoctorDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -49,7 +53,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Vi
         return mDoctors.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.doctorImageView) ImageView mDoctorImageView;
         @Bind(R.id.firstNameTextView) TextView mFirstNameTextView;
         @Bind(R.id.lastNameTextView) TextView mLastNameTextView;
@@ -61,6 +65,16 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Vi
             super(itemView);
             ButterKnife.bind(this,itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, DoctorDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("doctors", Parcels.wrap(mDoctors));
+            mContext.startActivity(intent);
         }
 
         public void bindDoctor(Doctor doctor) {
