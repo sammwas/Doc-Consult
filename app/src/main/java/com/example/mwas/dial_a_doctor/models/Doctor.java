@@ -14,8 +14,8 @@ public class Doctor {
     String lastName;
     String imageUrl;
     String bio;
-    ArrayList<String> mPhones = new ArrayList<>();
-    String mSpeciality;
+//    ArrayList<String> mPhones = new ArrayList<>();
+//    String mSpeciality;
 
     public Doctor(String firstName, String lastName, String imageUrl, String bio) {
         this.firstName = firstName;

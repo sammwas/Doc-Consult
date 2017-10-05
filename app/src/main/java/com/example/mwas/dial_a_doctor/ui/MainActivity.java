@@ -15,13 +15,14 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.inputField) EditText mInputField;
     @Bind(R.id.searchButton) Button mSearchButton;
-
+    @Bind(R.id.savedDoctorsButton) Button mSavedDoctorsButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         mSearchButton.setOnClickListener(this);
+        mSavedDoctorsButton.setOnClickListener(this);
     }
 
     //override the onlick method that is usually contained in the view.onClickListener interface
@@ -31,6 +32,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String searchParam = mInputField.getText().toString();
             Intent intent = new Intent(MainActivity.this,DoctorsActivity.class);
             intent.putExtra("searchParam", searchParam);
+            startActivity(intent);
+        }
+        if(v == mSavedDoctorsButton) {
+            Intent intent = new Intent(MainActivity.this, BookedDoctorListActivity.class);
             startActivity(intent);
         }
     }
