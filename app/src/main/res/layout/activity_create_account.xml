@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.mwas.dial_a_doctor.ui.CreateAccountActivity"
-    android:background="@color/colorPrimary">
+    android:background="#B4E8DD">
 
     <LinearLayout
         android:orientation="vertical"

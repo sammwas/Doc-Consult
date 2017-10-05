@@ -9,4 +9,5 @@ public class Constants {
     public static final String BETTERDOC_BASE_URL = "https://api.betterdoctor.com/2016-03-01/doctors";
     public static final String BETTERDOC_SEARCH_PARAM = "first_name";
     public static final String FIREBASE_CHILD_DOCTORS = "doctors";
+    public static final String PREFERENCE_SEARCH_PARAM = "searchParam";
 }

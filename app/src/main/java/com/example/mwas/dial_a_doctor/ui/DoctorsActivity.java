@@ -1,13 +1,21 @@
 package com.example.mwas.dial_a_doctor.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 
+import com.example.mwas.dial_a_doctor.Constants;
 import com.example.mwas.dial_a_doctor.R;
 import com.example.mwas.dial_a_doctor.adapters.DoctorListAdapter;
 import com.example.mwas.dial_a_doctor.models.Doctor;
@@ -23,6 +31,11 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class DoctorsActivity extends AppCompatActivity {
+
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mRecentEntry;
+
     public ArrayList<Doctor> mDoctors = new ArrayList<>();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
@@ -36,6 +49,13 @@ public class DoctorsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String searchParam = intent.getStringExtra("searchParam");
         getDoctors(searchParam);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentEntry = mSharedPreferences.getString(Constants.PREFERENCE_SEARCH_PARAM, null);
+
+        if (mRecentEntry != null) {
+            getDoctors(mRecentEntry);
+        }
     }
 
     //method that receives the response from the api call
@@ -72,5 +92,43 @@ public class DoctorsActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    private void addToSharedPreferences(String searchParam) {
+        mEditor.putString(Constants.PREFERENCE_SEARCH_PARAM, searchParam).apply();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                addToSharedPreferences(query);
+                getDoctors(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 }
