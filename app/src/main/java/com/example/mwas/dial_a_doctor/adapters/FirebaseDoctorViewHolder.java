@@ -43,7 +43,7 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
         TextView lastNameTextView = (TextView) mView.findViewById(R.id.lastNameTextView);
         TextView bioTextView = (TextView) mView.findViewById(R.id.bioTextView);
 
-        Picasso.with(mContext).load(doctor.getImageUrl()).centerCrop().into(doctorImageView);
+        Picasso.with(mContext).load(doctor.getImageUrl()).into(doctorImageView);
         firstNameTextView.setText(doctor.getFirstName());
         lastNameTextView.setText(doctor.getLastName());
         bioTextView.setText(doctor.getBio());
